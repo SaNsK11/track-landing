@@ -276,7 +276,7 @@ def build_post_html(topic, post_data, date_str):
   <span class="article-category">{category_label}</span>
   <h1>{topic["title"]}</h1>
   <div class="byline">
-    <span>By <strong>Sanskar</strong></span>
+    <span>By <strong>Sanskar Goyal</strong></span>
     <span>{display_date}</span>
     <span>{post_data["read_time"]} min read</span>
   </div>
