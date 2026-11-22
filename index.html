@@ -766,10 +766,12 @@
       max-width: 1200px; margin: 0 auto;
     }
     .footer-brand {
+      display: flex; align-items: center; gap: 10px;
       font-family: 'Archivo Black', sans-serif;
       font-size: 16px; text-decoration: none; color: var(--text);
     }
     .footer-brand span { color: var(--accent); }
+    .footer-brand-icon { width: 28px; height: 28px; border-radius: 7px; flex-shrink: 0; }
     .footer-links { display: flex; gap: 24px; }
     .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .15s; }
     .footer-links a:hover { color: var(--text); }
@@ -1183,7 +1185,10 @@
 
 <!-- FOOTER -->
 <footer>
-  <a class="footer-brand" href="#" aria-label="Track - Home">Tr<span>a</span>ck</a>
+  <a class="footer-brand" href="#" aria-label="Track - Home">
+    <img src="AppIcon.png" alt="" class="footer-brand-icon" aria-hidden="true" />
+    <span>Tr<span>a</span>ck</span>
+  </a>
   <div class="footer-links">
     <a href="https://sansk11.github.io/ironlog-privacy/" target="_blank" rel="noopener">Privacy Policy</a>
     <a href="https://sansk11.github.io/ironlog-privacy/" target="_blank" rel="noopener">Support</a>
@@ -1342,9 +1347,9 @@
   /* ── Pixel worm (random biased walk) on wild section edges ── */
   (function initPixelWorm() {
     const PIXEL = 11, GAP = 4, STEP = PIXEL + GAP;
-    const COLS = 7, TRAIL = 28;
+    const COLS = 9, TRAIL = 32;
     const R = 193, G = 234, B = 28;
-    const BASE_SPEED = 16;
+    const BASE_SPEED = 18;
 
     /* Seeded LCG PRNG so each canvas gets a stable, unique path */
     function mkRng(seed) {
@@ -1379,6 +1384,7 @@
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       canvas.width = COLS * STEP;
+      canvas.style.width = (COLS * STEP) + 'px';
 
       const outer = canvas.closest('.wild-outer');
       let path = [], glow = new Float32Array(0);
@@ -1404,7 +1410,7 @@
 
         for (let i = 0; i < path.length; i++) {
           const { x, y } = path[i];
-          const alpha = 0.025 + glow[i] * 0.18;
+          const alpha = 0.055 + glow[i] * 0.22;
           ctx.fillStyle = `rgba(${R},${G},${B},${alpha.toFixed(3)})`;
           ctx.fillRect(x, y, PIXEL, PIXEL);
           glow[i] *= 0.94;
