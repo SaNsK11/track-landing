@@ -213,7 +213,7 @@ INDEX_CSS = """
     .blog-label{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
     .blog-header h1{font-family:'Archivo Black',sans-serif;font-size:clamp(36px,6vw,64px);letter-spacing:-2px;line-height:1.0;margin-bottom:16px}
     .blog-header p{font-size:17px;color:var(--muted);line-height:1.6;max-width:480px}
-    .posts-grid{max-width:1100px;margin:0 auto;padding:0 48px 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:1px solid var(--border);border-radius:20px;overflow:hidden}
+    .posts-grid{max-width:1100px;margin:0 auto;padding:0 48px 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;overflow:hidden}
     .post-card{background:var(--surface);transition:background .2s}.post-card:hover{background:var(--surface2)}
     .post-link{display:block;padding:32px 28px;height:100%}
     .post-category{font-size:10px;font-weight:700;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:14px}
@@ -276,7 +276,7 @@ def build_post_html(topic, post_data, date_str):
   <span class="article-category">{category_label}</span>
   <h1>{topic["title"]}</h1>
   <div class="byline">
-    <span>By <strong>Track Team</strong></span>
+    <span>By <strong>Sanskar</strong></span>
     <span>{display_date}</span>
     <span>{post_data["read_time"]} min read</span>
   </div>
