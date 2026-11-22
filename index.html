@@ -783,12 +783,13 @@
       .ai-inner { gap: 60px; }
       .ai-mascot { width: 240px; }
     }
+
     @media (max-width: 860px) {
+      nav { padding: 14px 24px; }
+      .nav-links { display: none; }
       .hero { flex-direction: column; align-items: flex-start; padding: 120px 32px 60px; }
       .hero-left { max-width: 100%; }
       .hero-right { display: none; }
-      nav { padding: 14px 24px; }
-      .nav-links { display: none; }
       .wild-section { flex-direction: column-reverse; padding: 80px 32px; gap: 48px; align-items: flex-start; }
       .wild-phone-wrap { align-self: center; }
       .ai-inner { flex-direction: column; gap: 40px; align-items: flex-start; }
@@ -801,19 +802,68 @@
       .sf-spine { display: none; }
       .sf-step::before { display: none; }
       .sf-step-bg-num { display: none; }
+      .sf-step { min-height: auto; padding: 40px 0; }
       .features-grid { grid-template-columns: 1fr 1fr; }
       footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
     }
+
     @media (max-width: 600px) {
-      .hero { padding: 110px 24px 60px; }
-      .hero h1 { letter-spacing: -2px; }
-      .ticker-item { padding: 0 16px; }
-      .wild-section { padding: 72px 24px; }
-      .ai-section { padding: 72px 24px; }
-      .features-section { padding: 72px 24px; }
+      /* Nav */
+      nav { padding: 12px 20px; }
+
+      /* Hero */
+      .hero { padding: 96px 20px 52px; }
+      .hero h1 { font-size: clamp(42px, 11vw, 58px); letter-spacing: -2px; line-height: 0.95; }
+      .hero-sub { font-size: 15px; margin-bottom: 32px; }
+      .hero-eyebrow { margin-bottom: 28px; }
+      .hero-trust { gap: 10px; }
+      .trust-item .dot { margin-left: 8px; }
+      .btn-appstore { padding: 12px 20px; }
+
+      /* Ticker */
+      .ticker-item { padding: 0 14px; font-size: 12px; }
+
+      /* Wild section — hide pixel canvases (105px each = too wide for mobile) */
+      .px-canvas { display: none; }
+      .wild-section { padding: 60px 20px; gap: 36px; }
+      .wild-phone-wrap { width: 180px; border-radius: 28px; align-self: center; }
+
+      /* AI section */
+      .ai-section { padding: 60px 20px 72px; }
+      .ai-text-col p { max-width: 100%; }
+      #ai-skyline { height: 56px; }
+
+      /* How It Works */
+      .sf-section { padding: 40px 0 72px; }
+      .sf-top { margin-bottom: 48px; padding: 0 20px; }
+      .sf-inner { padding: 0 20px; gap: 28px; }
+      .sf-phone-col { width: 210px; }
+      .sf-phone { width: 210px; height: 454px; border-radius: 36px; }
+      .sf-step { padding: 32px 0; }
+      .sf-step h3 { font-size: 22px; letter-spacing: -0.6px; }
+
+      /* Features */
+      .features-section { padding: 60px 20px; }
       .features-grid { grid-template-columns: 1fr; }
-      .lime-cta { padding: 80px 24px; }
+      .feature-card { padding: 24px 20px; }
+
+      /* Lime CTA */
+      .lime-cta { padding: 72px 20px; }
       .lime-mascot { display: none; }
+      .lime-cta h2 { letter-spacing: -1.5px; }
+      .lime-cta p { font-size: 16px; margin-bottom: 36px; }
+      .btn-dark { padding: 14px 28px; }
+
+      /* Footer */
+      footer { padding: 28px 20px; }
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+    }
+
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 38px; }
+      .sf-phone { width: 190px; height: 411px; border-radius: 32px; }
+      .sf-phone-col { width: 190px; }
+      .lime-cta h2 { font-size: 34px; }
     }
   </style>
 </head>
