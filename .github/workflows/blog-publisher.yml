@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
     steps:
       - name: Checkout
@@ -29,7 +31,14 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic
 
+      - name: Check API key is set
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "ERROR: ANTHROPIC_API_KEY secret is missing or empty"
+            exit 1
+          else
+            echo "ANTHROPIC_API_KEY is set (length: ${#ANTHROPIC_API_KEY})"
+          fi
+
       - name: Generate and publish post
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python scripts/generate_post.py
