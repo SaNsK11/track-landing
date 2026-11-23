@@ -356,7 +356,7 @@ def build_index_html(posts):
 def git_push(files, message):
     subprocess.run(["git", "config", "user.email", "blog-bot@trytrack.app"], cwd=ROOT, check=True)
     subprocess.run(["git", "config", "user.name", "Track Blog Bot"], cwd=ROOT, check=True)
-    subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=ROOT, check=True)
+    subprocess.run(["git", "pull", "--rebase", "--autostash", "origin", "main"], cwd=ROOT, check=True)
     for f in files:
         subprocess.run(["git", "add", str(f)], cwd=ROOT, check=True)
     subprocess.run(["git", "commit", "-m", message], cwd=ROOT, check=True)
